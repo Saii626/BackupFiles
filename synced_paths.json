@@ -50,5 +50,13 @@
     {
         "src": "/home/saii/.config/termite",
         "backup": "BACKUP_LOCATION/termite"
+    },
+    {
+        "src": "/home/saii/.zprofile",
+        "backup": "BACKUP_LOCATION/.zprofile"
+    },
+    {
+        "src": "/home/saii/.bashrc",
+        "backup": "BACKUP_LOCATION/.bashrc"
     }
 ]

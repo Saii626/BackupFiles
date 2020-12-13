@@ -63,6 +63,7 @@ class SubCommand:
 			if aliases:
 				for a in aliases:
 					SubCommand.command_map[a] = cmd
+		subcommands.sort(key=lambda x: x.subparser_args[0])
 		return subcommands
 
 	@staticmethod

@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/media/Data/Projects/SocketSDK/src/test/java/app/saikat/SocketSDK/TestMessageHandlers'
+let g:netrw_dirhist_8='/media/Data/Projects/SocketSDK/src/test/java/app/saikat/SocketSDK/TestQueues'
+let g:netrw_dirhist_7='/media/Data/Projects/SocketSDK/src/test/java/app/saikat/SocketSDK/TestMessageHandlers'
+let g:netrw_dirhist_6='/media/Data/Projects/SocketSDK/src/test/java/app/saikat/SocketSDK/TestQueues'
+let g:netrw_dirhist_5='/media/Data/Projects/SocketSDK/src/test/java/app/saikat/SocketSDK'
+let g:netrw_dirhist_4='/media/Data/Projects/SocketSDK/src/test/java/app/saikat/SocketSDK/TestMessageHandlers'
+let g:netrw_dirhist_3='/media/Data/Projects/SocketSDK/src/test/java/app/saikat/SocketSDK/TestQueues'
+let g:netrw_dirhist_2='/media/Data/Projects/SocketSDK/src/test/java/app/saikat/SocketSDK/TestMessageHandlers'
+let g:netrw_dirhist_1='/media/Data/Projects/SocketSDK/src/test/java/app/saikat/SocketSDK/TestQueues'
+let g:netrw_dirhist_0='/media/Data/Projects/SocketSDK/src/test/java/app/saikat/SocketSDK/TestMessageHandlers'

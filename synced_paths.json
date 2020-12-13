@@ -1,1 +1,54 @@
-[]
+[
+    {
+        "src": "/home/saii/.zshrc",
+        "backup": "BACKUP_LOCATION/.zshrc"
+    },
+    {
+        "src": "/home/saii/.config/dunst",
+        "backup": "BACKUP_LOCATION/dunst"
+    },
+    {
+        "src": "/home/saii/.config/i3",
+        "backup": "BACKUP_LOCATION/i3"
+    },
+    {
+        "src": "/home/saii/.config/mimeapps.list",
+        "backup": "BACKUP_LOCATION/mimeapps.list"
+    },
+    {
+        "src": "/home/saii/.config/nnn",
+        "backup": "BACKUP_LOCATION/nnn"
+    },
+    {
+        "src": "/home/saii/.config/nvim",
+        "backup": "BACKUP_LOCATION/nvim"
+    },
+    {
+        "src": "/home/saii/.config/picom",
+        "backup": "BACKUP_LOCATION/picom"
+    },
+    {
+        "src": "/home/saii/.config/pulse",
+        "backup": "BACKUP_LOCATION/pulse"
+    },
+    {
+        "src": "/home/saii/.config/qutebrowser",
+        "backup": "BACKUP_LOCATION/qutebrowser"
+    },
+    {
+        "src": "/home/saii/.config/ranger",
+        "backup": "BACKUP_LOCATION/ranger"
+    },
+    {
+        "src": "/home/saii/.config/rofi",
+        "backup": "BACKUP_LOCATION/rofi"
+    },
+    {
+        "src": "/home/saii/.config/sxhkd",
+        "backup": "BACKUP_LOCATION/sxhkd"
+    },
+    {
+        "src": "/home/saii/.config/termite",
+        "backup": "BACKUP_LOCATION/termite"
+    }
+]

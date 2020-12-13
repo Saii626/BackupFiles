@@ -62,13 +62,20 @@ class Git:
 
 	def add(self, stdout=None, stderr=None):
 		self.log.debug('git add')
-		return self.__run_git(['add', '-A'], stdout, stderr)
+		p = self.__run_git(['add', '-A'], stdout, stderr)
+		print('Added to git')
+		return p
+
 	
 	def commit(self, msg=None, stdout=None, stderr=None):
 		self.log.debug('git commit')
-		return self.__run_git(['commit', '-m', msg if msg else f'Autocommit at {datetime.now().replace(microsecond=0).isoformat()}'], stdout, stderr)
+		m = msg if msg else f'Autocommit at {datetime.now().replace(microsecond=0).isoformat()}'
+		p = self.__run_git(['commit', '-m', m], stdout, stderr)
+		print(f'Commited to git with msg "{m}"')
+		return p
 	
 	def push(self, stdout=None, stderr=None):
 		self.log.debug('git push')
-		return self.__run_git(['push', 'origin', 'master'], stdout, stderr)
-	
+		p = self.__run_git(['push', 'origin', 'master'], stdout, stderr)
+		print('Pshed to git')
+		return p

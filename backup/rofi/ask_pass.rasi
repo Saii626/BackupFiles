@@ -1,0 +1,92 @@
+configuration {
+	fullscreen: true;
+	lines: 1;
+	font: "FiraMono-Medium 20";
+}
+
+// %%base16_template: rofi##colors %%
+/**
+ * Base16 Gruvbox dark, hard ROFI Color theme
+ *
+ * Authors
+ *  Scheme: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+ *  Template: Jordi Pakey-Rodriguez (https://github.com/0xdec), Andrea Scarpino (https://github.com/ilpianista)
+ */
+
+* {
+    red:                         rgba ( 251, 73, 52, 100 % );
+    blue:                        rgba ( 131, 165, 152, 100 % );
+    lightfg:                     rgba ( 235, 219, 178, 100 % );
+    lightbg:                     rgba ( 60, 56, 54, 100 % );
+    foreground:                  rgba ( 213, 196, 161, 100 % );
+    background:                  rgba ( 29, 32, 33, 90 % );
+    background-color:            rgba ( 29, 32, 33, 0 % );
+    separatorcolor:              @foreground;
+    border-color:                @foreground;
+    selected-normal-foreground:  @lightbg;
+    selected-normal-background:  @lightfg;
+    selected-active-foreground:  @background;
+    selected-active-background:  @blue;
+    selected-urgent-foreground:  @background;
+    selected-urgent-background:  @red;
+    normal-foreground:           @foreground;
+    normal-background:           @background;
+    active-foreground:           @blue;
+    active-background:           @background;
+    urgent-foreground:           @red;
+    urgent-background:           @background;
+    alternate-normal-foreground: @foreground;
+    alternate-normal-background: @lightbg;
+    alternate-active-foreground: @blue;
+    alternate-active-background: @lightbg;
+    alternate-urgent-foreground: @red;
+    alternate-urgent-background: @lightbg;
+}
+
+// %%base16_template_end%%
+
+window {
+	background-color: @background;
+	children: [ dummy1, hdum, dummy2 ];
+}
+
+hdum {
+    orientation: horizontal;
+    background-color: transparent;
+    children: [ dummy3, prompt, textbox-prompt-colon, entry, case-indicator, dummy4 ];
+
+}
+
+dummy1 {
+    background-color: transparent;
+}
+
+dummy2 {
+    background-color: transparent;
+}
+
+dummy3 {
+    background-color: transparent;
+}
+
+dummy4 {
+    background-color: transparent;
+}
+
+entry {
+    text-color: @normal-foreground;
+    text-align: center;
+    padding: 10px;
+}
+
+prompt {
+    text-color: @normal-foreground;
+    text-align: center;
+    padding: 10px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+    margin: 10px 0.3000em 0.0000em 0.0000em;
+}

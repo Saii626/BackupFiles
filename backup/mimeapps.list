@@ -1,0 +1,17 @@
+[Removed Associations]
+
+[Added Associations]
+application/zip=userapp-7z x -o%f-KSLHI0.desktop;
+video/mp4=vlc.desktop;
+application/json=nvim.desktop;
+application/octet-stream=nvim.desktop;
+application/pdf=org.gnome.Evince.desktop;
+text/plain=nvim.desktop;
+application/x-raw-disk-image=xarchiver.desktop;
+
+[Default Applications]
+video/mp4=vlc.desktop
+application/json=nvim.desktop
+application/pdf=org.gnome.Evince.desktop
+text/plain=nvim.desktop
+inode/directory=ranger.desktop

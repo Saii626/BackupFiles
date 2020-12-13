@@ -1,0 +1,30 @@
+super + d
+    rofi -show
+
+super + s
+    termite -e gtop
+
+super + shift + n
+    nm_applet_rofi.py
+
+super + shift + b
+    bluetooth_rofi.sh
+
+super + shift + m
+    mount_applet_rofi.py
+
+super + shift + l
+    lpass_applet_rofi.py
+
+super + shift + e
+    power_menu.sh
+
+
+super + q
+    qutebrowser
+
+super + t
+    termite --config ~/.config/termite/config
+
+super + r
+    termite -e ranger

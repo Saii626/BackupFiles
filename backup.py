@@ -3,16 +3,15 @@
 import logging, argparse, sys
 from SubCommand import SubCommand
 from pathlib import Path
+from Globals import PROJECT_DIR
 
 FORMAT = '%(asctime)-15s [%(levelname)s] %(name)s: %(message)s'
-#logging.basicConfig(filename='backup.log', encoding='utf-8', level=logging.DEBUG)
-logging.basicConfig(stream=sys.stdout, level=logging.DEBUG, format=FORMAT)
+logging.basicConfig(filename=str(PROJECT_DIR.joinpath('backup.log')), encoding='utf-8', level=logging.DEBUG)
+#logging.basicConfig(stream=sys.stdout, level=logging.DEBUG, format=FORMAT)
 log = logging.getLogger('backup')
 
 
 if __name__ == '__main__':
-	import Globals
-
 	# Create arg parser from subcommands, parse the arguments, instantiate appropriate subcommand and execute it
 	parser = argparse.ArgumentParser(prog=Path(__file__).name)
 	subparsers = parser.add_subparsers(help='additional help', required=True, dest='subparser')

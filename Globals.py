@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-import os, subprocess
+from __future__ import print_function
+import os, subprocess, sys
 from pathlib import Path
 
 def notify(urgency, title, body):
@@ -32,3 +33,6 @@ BACKUP_DIR = Path(PROJECT_DIR).joinpath('backup')
 if not BACKUP_DIR.exists():
         log.info('backup folder doesnot exists. Creating one')
         BACKUP_DIR.mkdir()
+
+def eprint(*args, **kwargs):
+    print(*args, file=sys.stderr, **kwargs)

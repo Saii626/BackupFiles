@@ -4,9 +4,10 @@ import json, logging
 from BackupLocation import BackupLocation
 from typing import List
 from pathlib import Path
+from Globals import PROJECT_DIR
 
 class ConfigFile:
-	config_file = ''
+	config_file = PROJECT_DIR.joinpath('synced_paths.json')
 
 	"""
 	Represents the config file. Has helper method to iterate over all BackupLocations
@@ -43,12 +44,15 @@ class ConfigFile:
 	def add_location(self, location: BackupLocation):
 		self.locations.append(location)
 
+	def remove_location(self, location: BackupLocation):
+		self.locations.remove(location)
+
 	def get_parent(self, location: Path):
 		self.log.debug(f'{location} {self.locations}')
 		for loc in self.locations:
 			if str(location).startswith(str(loc.back_path)):
 				self.log.debug(f'Found match {loc}')
-				return loc.dest
+				return loc.back_path
 		return None
 
 	def write_file(self):

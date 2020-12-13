@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-import subprocess, logging
+import subprocess, logging, os
 from datetime import datetime
 from enum import Enum
+from Globals import PROJECT_DIR, WORKING_DIR
 
 class GitStatus(Enum):
 	UNTRACKED = 0
@@ -27,20 +28,26 @@ class Git:
 	"""
 	Helper class to interact with git
 	"""
+
 	def __init__(self):
 		self.log = logging.getLogger('backup.git')
 
-	def __run_git(self, args):
-		p = subprocess.run(['git', *args], capture_output=True)
-		self.log.debug(f'returncode: {p.returncode}')
-		if p.returncode != 0:
-			self.log.error(f'Git error:\n{p.stdout.decode("utf-8")}')
-			exit(1)
-		return p.stdout.decode('utf-8')
+	def __run_git(self, args, stdout, stderr):
+		# Change working directory to project folder, run the git command, and recert the working directory
+		os.chdir(PROJECT_DIR)
 
-	def status(self):
+		p = subprocess.run(['git', *args], stdout=stdout, stderr=stderr, check=True)
+
+		os.chdir(WORKING_DIR)
+		return p
+
+	def status(self, stdout=None, stderr=None):
 		self.log.debug('git status')
-		git_status = self.__run_git(['status'])
+		return self.__run_git(['status'], stdout, stderr)
+
+	def project_status(self):
+		p = self.status(subprocess.PIPE, subprocess.PIPE)
+		git_status = p.stdout.decode('utf-8')
 
 		if 'Untracked files' in git_status:
 			return GitStatus.UNTRACKED
@@ -53,15 +60,15 @@ class Git:
 		elif 'up to date' in git_status:
 			return GitStatus.SYNCED
 
-	def add(self):
+	def add(self, stdout=None, stderr=None):
 		self.log.debug('git add')
-		return self.__run_git(['add', '-A'])
+		return self.__run_git(['add', '-A'], stdout, stderr)
 	
-	def commit(self):
+	def commit(self, msg=None, stdout=None, stderr=None):
 		self.log.debug('git commit')
-		return self.__run_git(['commit', '-m', 'Autocommit at %s'%(datetime.now().replace(microsecond=0).isoformat())])
+		return self.__run_git(['commit', '-m', msg if msg else f'Autocommit at {datetime.now().replace(microsecond=0).isoformat()}'], stdout, stderr)
 	
-	def push(self):
+	def push(self, stdout=None, stderr=None):
 		self.log.debug('git push')
-		return self.__run_git(['push', 'origin', 'master'])
+		return self.__run_git(['push', 'origin', 'master'], stdout, stderr)
 	

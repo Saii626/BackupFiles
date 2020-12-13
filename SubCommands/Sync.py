@@ -15,8 +15,8 @@ class Sync(SubCommand):
 
 	subparser_args = ('sync', {'help': 'Sync the backup folder. If no option is provided, does all the steps', 'aliases': ['sy']})
 	arguments = {'--add': {'help': 'Stages all uncommited changes and untracked files', 'nargs': '?', 'const': True}, '--commit': 
-		{'help': 'Commits all changes', 'nargs': '?', 'const': True}, '--msg': 
-		{'help': 'Used only with commit. If ommited, a system generated commit msg is used', 'nargs': '?', 'const': True}, '--push':
+		{'help': 'Commits all changes', 'nargs': '?', 'const': True}, '--msg':
+		{'help': 'Used only with commit. If ommited, a system generated commit msg is used'}, '--push':
 		{'help': 'Pushes all commits', 'nargs': '?', 'const': True}}
 	
 	def execute(self, args):

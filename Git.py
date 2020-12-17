@@ -77,5 +77,5 @@ class Git:
 	def push(self, stdout=None, stderr=None):
 		self.log.debug('git push')
 		p = self.__run_git(['push', 'origin', 'master'], stdout, stderr)
-		print('Pshed to git')
+		print('Pushed to git')
 		return p

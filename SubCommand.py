@@ -51,20 +51,21 @@ class SubCommand:
 					module = str(path.name)[:-3]
 					SubCommand.log.debug(f'Importing {module} module')
 					importlib.import_module(f'SubCommands.{module}')
+
+			for cmd in SubCommand.__subclasses__():
+				name = cmd.subparser_args[0]
+				SubCommand.command_map[name] = cmd
+
+				aliases = cmd.subparser_args[1].get('aliases')
+				if aliases:
+					for a in aliases:
+						SubCommand.command_map[a] = cmd
+
 			SubCommand.loaded_modules = True
-		
-		subcommands = SubCommand.__subclasses__()
 
-		for cmd in subcommands:
-			name = cmd.subparser_args[0]
-			SubCommand.command_map[name] = cmd
-
-			aliases = cmd.subparser_args[1].get('aliases')
-			if aliases:
-				for a in aliases:
-					SubCommand.command_map[a] = cmd
-		subcommands.sort(key=lambda x: x.subparser_args[0])
-		return subcommands
+		sorted_cmds = SubCommand.__subclasses__()
+		sorted_cmds.sort(key=lambda x: x.subparser_args[0])
+		return sorted_cmds
 
 	@staticmethod
 	def get_command(name: str):

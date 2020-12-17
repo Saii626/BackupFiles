@@ -28,10 +28,6 @@
         "backup": "BACKUP_LOCATION/picom"
     },
     {
-        "src": "/home/saii/.config/pulse",
-        "backup": "BACKUP_LOCATION/pulse"
-    },
-    {
         "src": "/home/saii/.config/qutebrowser",
         "backup": "BACKUP_LOCATION/qutebrowser"
     },

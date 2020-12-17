@@ -3,13 +3,19 @@
 from __future__ import print_function
 import os, subprocess, sys
 from pathlib import Path
+from enum import Enum
 
-def notify(urgency, title, body):
+class Urgency(str, Enum):
+	LOW = 'low'
+	MEDIUM = 'normal'
+	HIGH = 'critical'
+
+def notify(urgency: Urgency, title: str, body: str):
         """
         Helper function to easily call notify-send
         """
         subprocess.run(['notify-send', '--app-name=app.saikat.SyncConfigurations',
-                '--urgency=%s'%urgency, title, body], check=True, env=notify.env)
+                '--urgency=%s'%urgency.value, title, body], check=True, env=notify.env)
 
 # Use DBUS_SESSION_BUS_ADDRESS so that we can show notification even if run
 # from SHELL which don't have the env variable (eg: cronjob)

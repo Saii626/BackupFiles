@@ -5,6 +5,7 @@ from pathlib import Path
 from colorama import Fore, init
 from SubCommand import SubCommand
 from Git import Git, GitStatus
+from Globals import *
 
 init(autoreset=True)
 
@@ -33,13 +34,18 @@ class Sync(SubCommand):
 
 		git = Git()
 
-		if add:
-			git.add(stdout=sys.stdout, stderr=sys.stderr)
+		if add and git.project_status() in [GitStatus.UNTRACKED, GitStatus.UNSTAGED]:
+			self.safe_call(lambda: git.add(stdout=sys.stdout, stderr=sys.stderr), 'Git add failed')
 
-		if commit:
-			git.commit(msg=msg, stdout=sys.stdout, stderr=sys.stderr)
+		if commit and git.project_status() is GitStatus.UNCOMMITED:
+			self.safe_call(lambda: git.commit(msg=msg, stdout=sys.stdout, stderr=sys.stderr), 'Git commit failed')
 
-		if push:
-			git.push(stdout=sys.stdout, stderr=sys.stderr)
+		if push and git.project_status() is GitStatus.UNSYNCED:
+			self.safe_call(lambda: git.push(stdout=sys.stdout, stderr=sys.stderr), 'Git push failed')
+			notify(Urgency.LOW, 'Backup sync', 'Complete')
 
-
+	def safe_call(self, fn, error: str):
+		p = fn()
+		if p.returncode != 0:
+			notify(Urgency.HIGH, 'Backup sync', error)
+			exit(1)

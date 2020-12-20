@@ -1,0 +1,38 @@
+# Backup
+
+Script to easily sync files and folders to git. Used mainly to backup and restore configurations across installation
+
+## Use -h for help
+```sh
+$ backup -h
+usage: backup [-h] {add,remove,rm,restore,rs,status,st,sync,sy} ...
+
+positional arguments:
+  {add,remove,rm,restore,rs,status,st,sync,sy}
+                        additional help
+    add                 Add a path to backup list
+    remove (rm)         Removes a path from being backed up anymore
+    restore (rs)        Restores a path from backup location
+    status (st)         Gets status of backup
+    sync (sy)           Sync the backup folder. If no option is provided, does all the steps
+
+optional arguments:
+  -h, --help            show this help message and exit
+```
+
+## To create a fresh backup repository:
+  - Clone this repository
+  - Delete the backup folder and synced_paths.json
+  - Modity the repository's remote to new location
+  - Add an alias to backup.py in $PATH
+  - Start using the tool
+  - (Optional) Add a cronjob to run *backup sync* regularly
+
+## Workings:
+  - When adding a path to sync, check if the path is a file or folder
+  - If the path is a file, add a hardlink to it in repository's backup folder
+  - Is the path is a folder, move the folder to repository's backup folder and add a symlink to this in its place
+  - Restoring restores a path from repository to its original location
+  - Removing stops the path from being tracked
+  - Status returns with list of paths tracked and git ststus of the repository
+  - Syncing add/deletes any new files, commits them and pushes to remote

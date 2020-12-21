@@ -1,0 +1,25 @@
+Host *
+	Compression yes
+	IdentityFile ~/.ssh/id_ecdsa
+
+Host op
+	HostName 192.168.1.201
+	User u0_a408
+	Port 8022
+
+Host op_s
+	HostName 192.168.1.201
+	User u0_a408
+	Port 8022
+	RemoteCommand cd /storage/emulated/0 && bash
+	RequestTTY force
+
+Host pi4
+	HostName 192.168.1.205
+	User saii
+
+Host desktop
+	HostName 192.168.1.200
+	User saii
+
+

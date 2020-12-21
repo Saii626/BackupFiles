@@ -58,5 +58,13 @@
     {
         "src": "/home/saii/.local/bin",
         "backup": "BACKUP_LOCATION/bin"
+    },
+    {
+        "src": "/home/saii/.config/i3blocks",
+        "backup": "BACKUP_LOCATION/i3blocks"
+    },
+    {
+        "src": "/home/saii/.ssh/config",
+        "backup": "BACKUP_LOCATION/config"
     }
 ]

@@ -6,11 +6,19 @@
 
 config_version: 2
 settings:
+  aliases:
+    global:
+      q: close
+      qa: quit
+      w: session-save
+      wq: quit --save
+      wqa: quit --save
   auto_save.session:
     global: true
   bindings.commands:
     global:
       normal:
+        ',d': config-cycle colors.webpage.darkmode.enabled true false
         ',l': spawn --userscript ~/.local/bin/qute_lastpass.py
         ',m': open -t music.youtube.com
         ',s': config-cycle statusbar.show always never
@@ -22,6 +30,8 @@ settings:
         <Shift+Left>: back
         <Shift+Right>: forward
         <Shift+Up>: tab-prev
+  colors.webpage.darkmode.enabled:
+    global: false
   completion.height:
     global: 20%
   content.fullscreen.window:
@@ -30,6 +40,7 @@ settings:
     global: Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko)
       {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}
   content.notifications:
+    https://monkey-links.com: false
     https://pepethefrog.ucoz.com: false
     https://raspberrytips.com: false
     https://www.askpython.com: false

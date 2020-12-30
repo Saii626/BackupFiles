@@ -210,7 +210,6 @@ client.urgent           $base08 $base08 $base00 $base08 $base08
 client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base07
 
-for_window [class="Yad" title="yad-calendar"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 new_window 1pixel
@@ -218,17 +217,8 @@ new_window 1pixel
 # auto start foreground application
 # exec --no-startup-id i3-msg 'workspace 1 ; exec qutebrowser; workspace 2 ; exec termite --config ~/.config/termite/config; workspace 1 '
 
-# force steam to be in floating mode
-for_window [class="^Steam$" title="^Friends$"] floating enable
-for_window [class="^Steam$" title="Steam - News"] floating enable
-for_window [class="^Steam$" title=".* - Chat"] floating enable
-for_window [class="^Steam$" title="^Settings$"] floating enable
-for_window [class="^Steam$" title=".* - event started"] floating enable
-for_window [class="^Steam$" title=".* CD key"] floating enable
-for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
-for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
-for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
-for_window [title="^Steam Keyboard$"] floating enable
+# volume control
+for_window [title="ncpamixer"] floating enable
 
 # force MEGA to be in floating mode
 for_window [class="^MEGAsync$"] floating enable

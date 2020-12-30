@@ -19,6 +19,8 @@ super + shift + l
 super + shift + e
     power_menu.sh
 
+super + shift + v
+    termite -e ncpamixer
 
 super + q
     qutebrowser

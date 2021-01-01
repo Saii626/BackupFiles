@@ -40,6 +40,8 @@ settings:
     global: 20%
   content.fullscreen.window:
     global: true
+  content.geolocation:
+    https://whatismyipaddress.com: false
   content.headers.user_agent:
     global: Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko)
       {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}

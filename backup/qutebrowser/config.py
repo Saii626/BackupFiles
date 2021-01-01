@@ -87,7 +87,7 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
 # Enable darkmode
-config.set('colors.webpage.darkmode.enabled', True)
+# config.set('colors.webpage.darkmode.enabled', True)
 
 # %%base16_template: qutebrowser##default %%
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)

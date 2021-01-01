@@ -1,8 +1,8 @@
 super + d
     rofi -show
 
-super + s
-    termite -e gtop
+super + shift + s
+    st -e screen
 
 super + shift + n
     nm_applet_rofi.py

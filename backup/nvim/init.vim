@@ -1,4 +1,5 @@
-set termguicolors
+" set termguicolors
+set t_Co=256
 set number
 set nocompatible
 syntax enable
@@ -13,6 +14,8 @@ set list
 set hidden
 let mapleader=" "
 
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark
 colorscheme gruvbox
 hi! Normal ctermbg=NONE guibg=NONE

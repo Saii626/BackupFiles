@@ -79,7 +79,11 @@ n () {
 export SDKMAN_DIR="/home/saii/.sdkman"
 [[ -s "/home/saii/.sdkman/bin/sdkman-init.sh" ]] && source "/home/saii/.sdkman/bin/sdkman-init.sh"
 
-PS1="%M:%n%~ λ "
+# Denote whether we are inside screen/tmux or not
+NEWLINE=$'\n'
+PS1="%M:%n%~ ${NEWLINE}λ "
+if [ -n "$STY" ]; then export PS1="(screen) $PS1"; fi
+if [ -n "$TMUX" ]; then export PS1="(tmux) $PS1"; fi
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 

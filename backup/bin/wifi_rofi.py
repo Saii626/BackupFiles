@@ -3,7 +3,10 @@
 import subprocess
 from utils import run_rofi
 
-iwctl = subprocess.Popen(['iwctl'], text=True)
+# get current status
+iwctl = subprocess.run(['iwctl', 'station', 'wlan0', 'show'], text=True, capture_output=True)
+
+print('Err: %s \nOut: %s', iwctl.stderr, iwctl.stdout)
 
 
 

@@ -66,5 +66,13 @@
     {
         "src": "/home/saii/.ssh/config",
         "backup": "BACKUP_LOCATION/config"
+    },
+    {
+        "src": "/home/saii/.config/ncpamixer.conf",
+        "backup": "BACKUP_LOCATION/ncpamixer.conf"
+    },
+    {
+        "src": "/home/saii/.screenrc",
+        "backup": "BACKUP_LOCATION/.screenrc"
     }
 ]

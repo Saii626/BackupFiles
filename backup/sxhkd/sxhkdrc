@@ -2,7 +2,7 @@ super + d
     rofi -show
 
 super + shift + s
-    st -e screen
+    termite --config ~/.config/termite/config
 
 super + shift + n
     nm_applet_rofi.py
@@ -20,13 +20,13 @@ super + shift + e
     power_menu.sh
 
 super + shift + v
-    termite -e ncpamixer
+    st -e ncpamixer
 
 super + q
     qutebrowser
 
 super + t
-    termite --config ~/.config/termite/config
+    st -e screen
 
 super + r
-    termite -e ranger
+    st -e ranger

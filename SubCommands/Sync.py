@@ -34,6 +34,10 @@ class Sync(SubCommand):
 
 		git = Git()
 
+		if git.project_status() in [GitStatus.BEHIND, GitStatus.DIVERGED]:
+			notify(Urgency.HIGH, 'Backup Sync', 'Branch error')
+			sys.exit(1)
+
 		if add and git.project_status() in [GitStatus.UNTRACKED, GitStatus.UNSTAGED]:
 			print("git add")
 			self.safe_call(lambda: git.add(stdout=sys.stdout, stderr=sys.stderr), 'Git add failed')

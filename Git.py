@@ -11,6 +11,8 @@ class GitStatus(Enum):
 	UNCOMMITED = 2
 	UNSYNCED = 3
 	SYNCED = 4
+	BEHIND = 5
+	DIVERGED = 6
 
 	def __repr__(self):
 		if self == UNTRACKED:
@@ -23,6 +25,10 @@ class GitStatus(Enum):
 			return 'Unsynced'
 		elif self == SYNCED:
 			return 'Synced'
+		elif self == BEHIND:
+			return 'Behind'
+		elif self == DIVERGED:
+			return 'Diverged'
 
 class Git:
 	"""
@@ -55,10 +61,19 @@ class Git:
 			return GitStatus.UNSTAGED
 		elif 'Changes to be committed' in git_status:
 			return GitStatus.UNCOMMITED
-		elif 'Your branch is ahead' in git_status:
-			return GitStatus.UNSYNCED
-		elif 'up to date' in git_status:
-			return GitStatus.SYNCED
+		else:
+			local_commit = self.__run_git(['rev-parse', '@'], subprocess.PIPE, subprocess.PIPE).stdout.decode('utf-8')
+			remote_commit = self.__run_git(['rev-parse', '@{u}'], subprocess.PIPE, subprocess.PIPE).stdout.decode('utf-8')
+			base_commit = self.__run_git(['merge-base', '@', '@{u}'], subprocess.PIPE, subprocess.PIPE).stdout.decode('utf-8')
+			
+			if local_commit == remote_commit:
+				return GitStatus.SYNCED
+			elif local_commit == base_commit:
+				return GitStatus.BEHIND
+			elif remote_commit == base_commit:
+				return GitStatus.UNSYNCED
+			else:
+				return GitStatus.DIVERGED
 
 	def add(self, stdout=None, stderr=None):
 		self.log.debug('git add')

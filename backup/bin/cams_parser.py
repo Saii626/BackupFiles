@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import sys, fitz
+import sys, casparser
 from pathlib import Path
 
 def parse_cams_file(file_path: Path):

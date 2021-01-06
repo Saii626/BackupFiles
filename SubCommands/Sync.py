@@ -35,12 +35,15 @@ class Sync(SubCommand):
 		git = Git()
 
 		if add and git.project_status() in [GitStatus.UNTRACKED, GitStatus.UNSTAGED]:
+			print("git add")
 			self.safe_call(lambda: git.add(stdout=sys.stdout, stderr=sys.stderr), 'Git add failed')
 
 		if commit and git.project_status() is GitStatus.UNCOMMITED:
+			print("git commit")
 			self.safe_call(lambda: git.commit(msg=msg, stdout=sys.stdout, stderr=sys.stderr), 'Git commit failed')
 
 		if push and git.project_status() is GitStatus.UNSYNCED:
+			print("git push")
 			self.safe_call(lambda: git.push(stdout=sys.stdout, stderr=sys.stderr), 'Git push failed')
 			notify(Urgency.LOW, 'Backup sync', 'Complete')
 

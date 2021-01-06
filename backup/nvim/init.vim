@@ -52,3 +52,6 @@ nmap <c-j> :z+10<CR><CR>
 " Substitute the word under cursor
 nmap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
+" format json
+vmap <leader>j :%!python -m json.tool<CR>
+

@@ -1,5 +1,5 @@
 startup_message off
 
-term screen-256color
+term st-256color
 
 scrollback 10000

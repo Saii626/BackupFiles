@@ -4,10 +4,9 @@ import sys, casparser
 from pathlib import Path
 
 def parse_cams_file(file_path: Path):
-	pdf = fitz.open(file_path)
-	
-	for page in pdf:
-		print(page.getText('blocks'))
+	pdf = casparser.read_cas_pdf(str(file_path), "", output='json')
+
+	print(pdf)
 
 
 if __name__ == '__main__':

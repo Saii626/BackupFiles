@@ -26,7 +26,7 @@ super + q
     qutebrowser
 
 super + t
-    st -e screen
+    st
 
 super + r
     st -e ranger

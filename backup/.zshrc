@@ -73,6 +73,13 @@ n () {
     fi
 
     export NNN_SSHFS='sshfs -o reconnect,cache_timeout=3600'
+
+    export NNN_FIFO=/tmp/nnn.fifo
+    
+    export USE_SCOPE=1
+    export USE_VIDEOTHUMB=1
+
+    export NNN_PLUG='p:preview-tui'
 }
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

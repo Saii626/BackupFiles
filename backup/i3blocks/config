@@ -14,7 +14,7 @@ separator_block_width=15
 [rofi-calendar]
 command=rofi-calendar
 interval=3600
-#DATEFTM=+%a %d %b %Y
+DATEFTM=+%a %d %b %Y
 #SHORTFMT=+%d/%m/%Y
 LABEL= 
 #FONT=Monospace 10
@@ -22,3 +22,7 @@ LABEL=
 #PREV_MONTH_TEXT=« previous month «
 #NEXT_MONTH_TEXT=» next month »
 #ROFI_CONFIG_FILE=/dev/null
+
+[time]
+command=date +"%a %d %b, %I:%M%P"
+interval=10

@@ -109,6 +109,7 @@ pacman=(
 paru=(
 	nnn-nerd
 	minecraft-launcher
+	selectwm
 )
 
 sudo pacman -Syu ${pacman[@]}

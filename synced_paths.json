@@ -48,10 +48,6 @@
         "backup": "BACKUP_LOCATION/termite"
     },
     {
-        "src": "/home/saii/.zprofile",
-        "backup": "BACKUP_LOCATION/.zprofile"
-    },
-    {
         "src": "/home/saii/.bashrc",
         "backup": "BACKUP_LOCATION/.bashrc"
     },
@@ -74,5 +70,21 @@
     {
         "src": "/home/saii/.screenrc",
         "backup": "BACKUP_LOCATION/.screenrc"
+    },
+    {
+        "src": "/home/saii/.xinitrc",
+        "backup": "BACKUP_LOCATION/.xinitrc"
+    },
+    {
+        "src": "/home/saii/.xprofile",
+        "backup": "BACKUP_LOCATION/.xprofile"
+    },
+    {
+        "src": "/home/saii/.zlogin",
+        "backup": "BACKUP_LOCATION/.zlogin"
+    },
+    {
+        "src": "/home/saii/.config/.selectwmrc",
+        "backup": "BACKUP_LOCATION/.selectwmrc"
     }
 ]

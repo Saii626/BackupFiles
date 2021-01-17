@@ -51,6 +51,8 @@ from util import *
 WINDOW_ICONS = {
     'alacritty': fa.icons['terminal'],
     'termite': fa.icons['terminal'],
+    'st': fa.icons['terminal'],
+    'st-256color': fa.icons['terminal'],
     'atom': fa.icons['code'],
     'banshee': fa.icons['play'],
     'blender': fa.icons['cube'],

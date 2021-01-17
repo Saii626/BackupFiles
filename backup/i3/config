@@ -47,6 +47,9 @@ bindsym $mod+Return exec st -e screen
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# kill i3
+bindsym $mod+Shift+e exec i3-msg exit
+
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -222,7 +225,6 @@ for_window [title="ncpamixer"] floating enable
 # force MEGA to be in floating mode
 for_window [class="^MEGAsync$"] floating enable
 
-exec --no-startup-id ~/.zprofile
 exec_always ~/.local/bin/autoname_workspaces.py &
 
 bar {

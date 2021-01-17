@@ -16,7 +16,7 @@ super + shift + m
 super + shift + l
     lpass_applet_rofi.py
 
-super + shift + e
+super + shift + p
     power_menu.sh
 
 super + shift + v

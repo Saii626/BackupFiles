@@ -5,6 +5,7 @@ dunst &
 sxhkd &
 unclutter --timeout 3 &
 numlockx on
+redshift &
 
 # custom scripts
 set_wallpaper.sh  # wallpaper

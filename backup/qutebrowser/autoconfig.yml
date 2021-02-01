@@ -47,6 +47,7 @@ settings:
       {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}
   content.media.audio_capture:
     https://discord.com: true
+    https://teams.microsoft.com: true
   content.notifications:
     https://monkey-links.com: false
     https://pepethefrog.ucoz.com: false
